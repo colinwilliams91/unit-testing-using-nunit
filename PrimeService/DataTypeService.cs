@@ -8,7 +8,7 @@ namespace Prime.Services
 {
     public class DataTypeService
     {
-        public static bool IsInt (object value)
+        public bool IsInt (object value)
         {
             return value is int;
         }
