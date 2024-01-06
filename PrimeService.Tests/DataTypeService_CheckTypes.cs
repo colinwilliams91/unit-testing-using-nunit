@@ -39,9 +39,30 @@ namespace Prime.UnitTests.Services
 
         /* Act */
         #region Integers
+        [Test]
+        public void IsInt_NotInt_ReturnFalse()
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(_dataTypeService.IsInt(_boolean), Is.False);
+                Assert.That(_dataTypeService.IsInt(_name), Is.False);
+                Assert.That(_dataTypeService.IsInt(_letter), Is.False);
+            });
+        }
 
-        [TestCase()]
+        public void IsInt_Nullish_ReturnFalse()
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(_dataTypeService.IsInt(_nan), Is.False);
+                Assert.That(_dataTypeService.IsInt(_empty), Is.False);
+            });
+        }
 
+        public void IsInt_Int_ReturnTrue()
+        {
+            Assert.That(_dataTypeService.IsInt(_num), Is.True);
+        }
         #endregion
 
         #region Booleans
