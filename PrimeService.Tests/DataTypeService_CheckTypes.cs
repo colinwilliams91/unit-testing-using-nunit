@@ -36,59 +36,45 @@ namespace Prime.UnitTests.Services
             _name = "Colin";
             _letter = 'A';
         }
-        
-        [Test]
-        public void CheckTypes()
-        {
-            // TODO: if blocks are not hitting, probably need type unboxing from object to specific types
-            var test = new [] { _array, _obj, _nan, _empty, _boolean, _num, _name, _letter };
 
-            /* Act */
-            foreach (var item in test)
-            {
-                Warn.If(item is null, $"{item} is {item?.GetType().Name}");
+        /* Act */
+        #region Integers
 
-                if (item is int)
-                {
-                    Assert.That(_dataTypeService.IsInt(item), Is.True);
-                }
-                else if (item is bool)
-                {
-                    Assert.That(_dataTypeService.IsBoolean(item), Is.True);
-                }
-                else if (item is string)
-                {
-                    Assert.That(_dataTypeService.IsString(item), Is.True);
-                }
-                else if (item is char)
-                {
-                    Assert.That(_dataTypeService.IsCharacter(item), Is.True);
-                }
-                else if (item is Array)
-                {
-                    //Assert.That(_dataTypeService.IsArray(item), Is.True);
-                    Assert.Pass("item is of type Array", item);
-                }
-                else if (double.IsNaN((double)item))
-                {
-                    Assert.That(_dataTypeService.IsNotANumber(item), Is.True);
-                }
-                else if (item is null)
-                {
-                    Assert.That(_dataTypeService.IsNull(item));
-                }
-                else if (item is Object)
-                {
-                    Assert.That(_dataTypeService.IsObj(item), Is.True);
-                }
-                else
-                {
-                    Assert.Fail("item has unknown type, fell to else block: [Test]CheckTypes", item);
-                }
-            }
+        [TestCase()]
 
-            /* Assert */
+        #endregion
 
-        }
+        #region Booleans
+
+        #endregion
+
+        #region Strings
+
+        #endregion
+
+        #region Characters
+
+        #endregion
+
+        /* Complex Data Types */
+        #region Arrays
+
+        #endregion
+
+        #region Anonymous Objects
+
+        #endregion
+
+        #region Not a Number
+
+        #endregion
+
+        #region Null Reference
+
+        #endregion
+
+        /* Assert */
+
     }
 }
+
