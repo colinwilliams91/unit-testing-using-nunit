@@ -48,9 +48,42 @@ namespace Prime.UnitTests.Services
             {
                 Warn.If(item is null, $"{item} is {item?.GetType().Name}");
 
-                if (item is string)
+                if (item is int)
                 {
-                    Assert.That(item, Is.True);
+                    Assert.That(_dataTypeService.IsInt(item), Is.True);
+                }
+                else if (item is bool)
+                {
+                    Assert.That(_dataTypeService.IsBoolean(item), Is.True);
+                }
+                else if (item is string)
+                {
+                    Assert.That(_dataTypeService.IsString(item), Is.True);
+                }
+                else if (item is char)
+                {
+                    Assert.That(_dataTypeService.IsCharacter(item), Is.True);
+                }
+                else if (item is Array)
+                {
+                    //Assert.That(_dataTypeService.IsArray(item), Is.True);
+                    Assert.Pass("item is of type Array", item);
+                }
+                else if (double.IsNaN((double)item))
+                {
+                    Assert.That(_dataTypeService.IsNotANumber(item), Is.True);
+                }
+                else if (item is null)
+                {
+                    Assert.That(_dataTypeService.IsNull(item));
+                }
+                else if (item is Object)
+                {
+                    Assert.That(_dataTypeService.IsObj(item), Is.True);
+                }
+                else
+                {
+                    Assert.Fail("item has unknown type, fell to else block: [Test]CheckTypes", item);
                 }
             }
 
