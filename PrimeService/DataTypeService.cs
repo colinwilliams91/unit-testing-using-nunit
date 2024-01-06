@@ -38,7 +38,7 @@ namespace Prime.Services
             return value is object;
         }
 
-        public bool IsNaN(object value)
+        public bool IsNotANumber(object value)
         {
             return value is double.NaN;
         }
