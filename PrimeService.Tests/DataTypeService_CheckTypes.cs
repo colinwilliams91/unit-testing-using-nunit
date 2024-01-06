@@ -40,7 +40,7 @@ namespace Prime.UnitTests.Services
         [Test]
         public void CheckTypes()
         {
-
+            // TODO: if blocks are not hitting, probably need type unboxing from object to specific types
             var test = new [] { _array, _obj, _nan, _empty, _boolean, _num, _name, _letter };
 
             /* Act */
